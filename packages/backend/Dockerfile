@@ -17,4 +17,4 @@ ENV DATABASE_HOST="localhost"
 
 EXPOSE 8080
 
-CMD ["gow", "run", "."]
+CMD ["go", "run", "."]

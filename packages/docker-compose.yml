@@ -1,0 +1,23 @@
+version: "3.8"
+services:
+  backend:
+    build:
+      context: ./backend
+    environment:
+      - DATABASE_HOST=database
+      - DATABASE_PASSWORD=admin
+      - DATABASE_USERNAME=starbook
+      - DATABASE_NAME=starbook
+    depends_on:
+      - "database"
+    restart: on-failure
+    ports:
+      - "8080:8080"
+
+  database:
+    image: postgres
+    environment:
+      - POSTGRES_PASSWORD=admin
+      - POSTGRES_USER=starbook
+    ports:
+      - "5432:5432"

@@ -12,25 +12,25 @@ export class HttpService {
   constructor(private httpClient: HttpClient) { }
 
   fetchPersons(): Observable<Person[]> {
-    return this.httpClient.get<Person[]>("http://localhost:8080/person")
+    return this.httpClient.get<Person[]>("http://127.0.0.1:8080/person")
   }
 
   postPerson(name: string, picture: string): Observable<void> {
-    return this.httpClient.post<void>("http://localhost:8080/person", {
+    return this.httpClient.post<void>("http://127.0.0.1:8080/person", {
       name,
       picture
     })
   }
 
   postStar(comment: string, userId: number): Observable<void> {
-    return this.httpClient.post<void>(`http://localhost:8080/star`, {
+    return this.httpClient.post<void>(`http://127.0.0.1:8080/star`, {
       comment,
       recipientid: userId
     });
   }
 
   fetchPersonStars(uid: number): Observable<Star[]> {
-   return this.httpClient.get<Star[]>(`http://localhost:8080/star/${uid}`);
+   return this.httpClient.get<Star[]>(`http://127.0.0.1:8080/star/${uid}`);
   }
 
 }

@@ -45,7 +45,7 @@ func (p *Presentation) CreateRoutes() {
 func (p *Presentation) StartServer(port string) {
 	server := &http.Server{
 		Handler: p.router,
-		Addr:    "127.0.0.1:" + port,
+		Addr:    "0.0.0.0:" + port,
 	}
 
 	log.Fatal(server.ListenAndServe())

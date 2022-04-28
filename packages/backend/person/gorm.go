@@ -12,7 +12,7 @@ type PersonGormRepository struct {
 }
 
 func NewGormPersonRepository(host string, user string, password string, database string) (*PersonGormRepository, error) {
-	connectionString := fmt.Sprintf("host=%s user=%s password=%s dbname=%s port=9920 sslmode=disable TimeZone=Europe/Oslo", host, user, password, database)
+	connectionString := fmt.Sprintf("host=%s user=%s password=%s dbname=%s port=5432 sslmode=disable TimeZone=Europe/Oslo", host, user, password, database)
 	connection, err := gorm.Open(postgres.Open(connectionString))
 
 	connection.AutoMigrate(&Person{})

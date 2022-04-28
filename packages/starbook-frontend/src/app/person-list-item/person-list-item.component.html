@@ -1,0 +1,22 @@
+<div class="person-card">
+    <mat-card class="example-card">
+        <mat-card-header>
+            <mat-card-title>{{ person?.Name }}</mat-card-title>
+            <div class="starcount">
+                <mat-icon>star</mat-icon>
+                {{ starAmount | async }}
+            </div>
+        </mat-card-header>
+        <img mat-card-image *ngIf="person?.Picture" [src]="person?.Picture" alt="A person deserving a star" />
+        <mat-card-content>
+            <mat-form-field style="width: 100%" appearance="fill">
+                <mat-label>Why does this person deserve a star?</mat-label>
+                <textarea [formControl]="textField" matInput></textarea>
+            </mat-form-field>
+        </mat-card-content>
+        <mat-card-actions>
+            <button (click)="onSubmitClick()" [disabled]="!(canSubmit$ | async)" mat-button>GIVE A STAR</button>
+        </mat-card-actions>
+    </mat-card>
+
+</div>

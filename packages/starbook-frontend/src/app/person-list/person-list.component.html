@@ -1,0 +1,8 @@
+<div class="persons">
+    <div class="person">
+        <app-create-person></app-create-person>
+    </div>
+    <div class="person" *ngFor="let person of persons$ | async">
+        <app-person-list-item [person]="person"></app-person-list-item>
+    </div>
+</div>
